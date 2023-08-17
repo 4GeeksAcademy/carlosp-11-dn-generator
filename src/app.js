@@ -7,16 +7,36 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+  let myTitle = document.querySelector("#titulo");
+  myTitle.innerHTML = "Proyecto JS";
+
+  let myParagraph = document.querySelector("#parrafo");
+  myParagraph.innerHTML = "Domain name Generator";
 
   let pronoun = ["the", "our"];
   let adj = ["great", "big"];
   let noun = ["jogger", "racoon"];
+  let dom = ["com", "net", "org", "us", "io"];
 
-  for (let i = 0; i < pronoun.length; i++) {
-    for (let j = 0; j < adj.length; j++) {
-      for (let k = 0; k < noun.length; k++) {
-        console.log(pronoun[i] + adj[j] + noun[k] + ".com");
+  let listItem = "";
+  for (let element of pronoun) {
+    for (let item of adj) {
+      for (let option of noun) {
+        for (let objet of dom) {
+          listItem +=
+            "<li class='list-group-item'>" +
+            element +
+            item +
+            option +
+            "." +
+            objet +
+            "</li>";
+          console.log(element + item + option + "." + objet);
+        }
       }
     }
   }
+
+  let myList = document.querySelector("#lista");
+  myList.innerHTML = listItem;
 };
